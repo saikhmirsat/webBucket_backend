@@ -3,6 +3,7 @@ const { connection } = require('./Config/db')
 require('dotenv').config();
 const cors = require("cors")
 const { ProductRouter } = require('./Routes/Products.route')
+const { HackRouter } = require('./Routes/Hack.route')
 
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/products', ProductRouter)
+app.use('/instagram', HackRouter)
 
 const port = process.env.PORT
 app.listen(port, async () => {
